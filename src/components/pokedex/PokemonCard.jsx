@@ -3,6 +3,7 @@ import { getPokemonByUrl } from "../../services/pokemons";
 
 const PokemonCard = ({ pokemonUrl }) => {
   const [pokemonInfo, setPokemonInfo] = useState(null);
+
   useEffect(() => {
     getPokemonByUrl(pokemonUrl)
       .then((data) => setPokemonInfo(data))
