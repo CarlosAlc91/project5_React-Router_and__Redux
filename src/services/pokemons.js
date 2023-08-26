@@ -11,7 +11,7 @@ export const getAllPokemons = async () => {
 export const getPokemonByUrl = async (pokemonUrl) => {
   const { data } = await axios.get(pokemonUrl)
 
-  /* contrato hecho en js */
+  /* contrato para formatear la informacion hecho en js */
   const pokemon = {
     id: data.id,
     name: data.name,
@@ -25,11 +25,15 @@ export const getPokemonByUrl = async (pokemonUrl) => {
 
 const formatStats = ((stats) => {
   return stats.map((stat) => ({
-    name: stat.stat.mame,
+    name: stat.stat.name,
     value: stat.base_stat
   }))
 })
 
 const formatTypes = (types) => {
   return types.map((type) => type.type.name)
+}
+
+export const joinPokemonTypes = (types = []) => {
+  return types.slice(0, 2).join(" / ")
 }
