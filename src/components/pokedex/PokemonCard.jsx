@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import { getPokemonByUrl, joinPokemonTypes } from "../../services/pokemons";
 import StatList from "./StatList";
+import {
+  bgStylePokemonType,
+  borderStylePokemonType,
+} from "../../shared/pokemon";
+import { Link } from "react-router-dom";
 
 const PokemonCard = ({ pokemonUrl }) => {
   const [pokemonInfo, setPokemonInfo] = useState(null);
@@ -11,9 +16,18 @@ const PokemonCard = ({ pokemonUrl }) => {
       .then((data) => setPokemonInfo(data))
       .catch((err) => console.log(err));
   }, []);
+
   return (
-    <article className="text-center capitalize border-[5px] rounded-md">
-      <header className="h-[80px] bg-red-500 relative mb-8">
+    <Link
+      to={`/pokedex/${pokemonInfo?.id}`}
+      className={`text-center capitalize border-[5px] rounded-md
+      ${borderStylePokemonType[pokemonInfo?.types[0]]}`}
+    >
+      <header
+        className={`h-[80px]  relative mb-8 ${
+          bgStylePokemonType[pokemonInfo?.types[0]]
+        }`}
+      >
         <div className="absolute left-1/2 -translate-x-1/2 -bottom-4 h-[65px] aspect-square ">
           <img
             className="h-full w-full object-contain"
@@ -29,7 +43,7 @@ const PokemonCard = ({ pokemonUrl }) => {
         <hr />
         <StatList stats={pokemonInfo?.stats} />
       </section>
-    </article>
+    </Link>
   );
 };
 export default PokemonCard;
