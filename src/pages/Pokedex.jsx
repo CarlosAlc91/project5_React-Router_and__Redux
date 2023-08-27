@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { getAllPokemons } from "../services/pokemons";
+import { getAllPokemons, getPokemonsByType } from "../services/pokemons";
 import PokemonList from "../components/pokedex/PokemonList";
 
 const Pokedex = () => {
@@ -27,11 +27,22 @@ const Pokedex = () => {
     pokemon.name.toLowerCase().includes(pokemonName.toLocaleLowerCase())
   );
 
+  /* con esta peticion podemos hacer el filtrado del tipo de pokemons y mostrar todos los pokemons */
   useEffect(() => {
-    getAllPokemons()
-      .then((data) => setPokemons(data))
-      .catch((err) => console.log(err));
-  }, []);
+    if (!pokemonType) {
+      getAllPokemons()
+        .then((data) => setPokemons(data))
+        .catch((err) => console.log(err));
+    }
+  }, [pokemonType]);
+
+  useEffect(() => {
+    if (pokemonType) {
+      //hacer lal peticion de pokemons por tipo
+      getPokemonsByType(pokemonType).then((data) => setPokemons(data));
+    }
+  }, [pokemonType]);
+
   return (
     <main>
       <section>
