@@ -17,8 +17,9 @@ const PokemonDetail = () => {
       .catch((err) => console.log(err));
   }, []);
   return (
-    <main>
-      <article>
+    <main className="flex justify-center items-center">
+      {/* va a tomar el valor que sea minimo o el 100% o hasta 400px */}
+      <article className="w-[min(100%,_400px)]">
         <header>
           <div>
             <img src={pokemonData?.image} alt="" />
