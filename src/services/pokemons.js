@@ -17,6 +17,24 @@ export const getPokemonsByType = async (pokemonType) => {
   return formatPokemons
 }
 
+export const getPokemonById = async (pokemonId) => {
+  const url = `https://pokeapi.co/api/v2/pokemon/${pokemonId}/`
+  const { data } = await axios.get(url)
+  console.log(data)
+
+  const pokemon = {
+    id: data.id,
+    name: data.name,
+    types: formatTypes(data.types),
+    stats: formatStats(data.stats),
+    image: data.sprites.versions["generation-v"]["black-white"].animated.front_default,
+    weight: data.weight,
+    height: data.height
+  }
+
+  return pokemon
+}
+
 export const getPokemonByUrl = async (pokemonUrl) => {
   const { data } = await axios.get(pokemonUrl)
 

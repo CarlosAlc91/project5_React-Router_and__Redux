@@ -1,5 +1,4 @@
 const StatList = ({ stats }) => {
-  console.log(stats);
   return (
     <ul className="grid gap-2 grid-cols-3 text-sx p-2">
       {stats?.map((stat) => (
