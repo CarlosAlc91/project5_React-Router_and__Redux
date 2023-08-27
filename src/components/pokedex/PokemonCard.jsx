@@ -8,7 +8,10 @@ import {
 import { Link } from "react-router-dom";
 
 const PokemonCard = ({ pokemonUrl }) => {
+  /* stattes */
   const [pokemonInfo, setPokemonInfo] = useState(null);
+
+  /* functions handlers */
 
   /* effect */
   useEffect(() => {
