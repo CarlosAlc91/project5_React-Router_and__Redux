@@ -8,6 +8,12 @@ export const getAllPokemons = async () => {
   return data.results
 }
 
+/* servicio para obtener todos los tipos de pokemons */
+export const getAllTypes = async () => {
+  const { data } = await axios.get('https://pokeapi.co/api/v2/type/')
+  return data.results
+}
+
 /* funcion para tipo de pokemons */
 export const getPokemonsByType = async (pokemonType) => {
   const url = `https://pokeapi.co/api/v2/type/${pokemonType}`

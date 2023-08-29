@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
-import { getAllPokemons, getPokemonsByType } from "../services/pokemons"
+import { getAllPokemons, getAllTypes, getPokemonsByType } from "../services/pokemons"
 
 /* logic separation from Pokedex.jsx component */
 const usePokedex = () => {
   const [pokemons, setPokemons] = useState([])
   const [pokemonName, setPokemonName] = useState("")
   const [pokemonType, setPokemonType] = useState("")
+  const [types, setTypes] = useState([])
   /* slice = estado global */
   const { name } = useSelector((store) => store.trainer)
 
@@ -33,18 +34,27 @@ const usePokedex = () => {
   useEffect(() => {
     if (pokemonType) {
       //hacer lal peticion de pokemons por tipo
-      getPokemonsByType(pokemonType).then((data) => setPokemons(data))
+      getPokemonsByType(pokemonType)
+        .then((data) => setPokemons(data))
     }
   }, [pokemonType])
 
+  /* efecto de la funcion getAllTypes */
+  useEffect(() => {
+    getAllTypes()
+      .then((types) => setTypes(types))
+      .catch((err) => console.log(err))
+  }, [])
+
   return {
     name,
+    types,
     pokemonName,
-    setPokemonName,
     pokemonType,
-    setPokemonType,
-    handlerChange,
     pokemonsByName,
+    handlerChange,
+    setPokemonName,
+    setPokemonType,
   }
 }
 export default usePokedex

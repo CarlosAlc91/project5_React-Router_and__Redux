@@ -5,6 +5,7 @@ const Pokedex = () => {
   /* custom hook */
   const {
     name,
+    types,
     pokemonName,
     pokemonType,
     pokemonsByName,
@@ -30,8 +31,12 @@ const Pokedex = () => {
           </div>
 
           <select value={pokemonType} onChange={handlerChange(setPokemonType)}>
-            <option value="">All pokemos</option>
-            <option value="rock">Rock</option>
+            <option value="">All pokemons</option>
+            {types.map((type) => (
+              <option key={type.name} value={type.name} className="capitalize">
+                {type.name}
+              </option>
+            ))}
           </select>
         </form>
       </section>
