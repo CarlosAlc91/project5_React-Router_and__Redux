@@ -1,6 +1,11 @@
 const FIRST_PAGE = 1;
 
-const Pagination = ({ lastPage, pagesInCurrentBlock, setCurrentPage }) => {
+const Pagination = ({
+  lastPage,
+  pagesInCurrentBlock,
+  currentPage,
+  setCurrentPage,
+}) => {
   const handlerNextPage = () => {
     setCurrentPage((currentPage) => {
       const nextPage = currentPage + 1;
@@ -25,11 +30,17 @@ const Pagination = ({ lastPage, pagesInCurrentBlock, setCurrentPage }) => {
   const handlerFirstPage = () => setCurrentPage(FIRST_PAGE);
 
   return (
-    <ul className="flex justify-center gap-4 p-4">
-      <li onClick={handlerFirstPage}>{"<<"}</li>
-      <li onClick={handlerPreviousPage}>{"<"}</li>
+    <ul className="flex justify-center gap-4 p-4 items-center">
+      {currentPage >= 2 && <li onClick={handlerFirstPage}>{"<<"}</li>}
+      {currentPage >= 2 && <li onClick={handlerPreviousPage}>{"<"}</li>}
       {pagesInCurrentBlock.map((page) => (
-        <li key={page} onClick={() => setCurrentPage(page)}>
+        <li
+          className={`p-2 ${
+            currentPage === page ? "text-white bg-red-500" : ""
+          }`}
+          key={page}
+          onClick={() => setCurrentPage(page)}
+        >
           {page}
         </li>
       ))}
@@ -37,7 +48,7 @@ const Pagination = ({ lastPage, pagesInCurrentBlock, setCurrentPage }) => {
       {/* siguiente pagina */}
       <li onClick={handlerNextPage}>{">"}</li>
       {/* ultima pagina */}
-      <li onClick={handlerLastPage}>{">>"}</li>
+      {currentPage >= 2 && <li onClick={handlerLastPage}>{">>"}</li>}
     </ul>
   );
 };

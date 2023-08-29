@@ -52,12 +52,13 @@ const Pokedex = () => {
         </form>
       </section>
 
+      <PokemonList pokemons={itemsInCurrentPage} />
       <Pagination
         lastPage={lastPage}
         pagesInCurrentBlock={pagesInCurrentBlock}
+        currentPage={currentPage}
         setCurrentPage={setCurrentPage}
       />
-      <PokemonList pokemons={itemsInCurrentPage} />
     </main>
   );
 };
