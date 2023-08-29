@@ -1,8 +1,13 @@
+import { useState } from "react";
 import PokemonList from "../components/pokedex/PokemonList";
 import usePokedex from "../hooks/usePokedex";
+import { paginateData } from "../utils/pagination";
 
 const Pokedex = () => {
   /* custom hook */
+
+  /* states */
+  const [currentPage, setCurrentPage] = useState(1);
   const {
     name,
     types,
@@ -13,6 +18,11 @@ const Pokedex = () => {
     setPokemonType,
     handlerChange,
   } = usePokedex();
+
+  const { itemsInCurrentPage, lastPage, pagesInCurrentBlock } = paginateData(
+    pokemonsByName,
+    currentPage
+  );
 
   return (
     <main>
@@ -41,7 +51,7 @@ const Pokedex = () => {
         </form>
       </section>
 
-      <PokemonList pokemons={pokemonsByName} />
+      <PokemonList pokemons={itemsInCurrentPage} />
     </main>
   );
 };
