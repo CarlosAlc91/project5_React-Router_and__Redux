@@ -33,7 +33,7 @@ const Pagination = ({
     <ul className="flex justify-center gap-4 p-4 items-center font-semibold cursor-pointer">
       {currentPage >= 2 && (
         <li
-          className="p-2 px-4 rounded-md text-white bg-red-500 hover:bg-option"
+          className="p-4 rounded-md text-white bg-red-500 hover:bg-option aspect-square"
           onClick={handlerFirstPage}
         >
           {"<<"}
@@ -41,7 +41,7 @@ const Pagination = ({
       )}
       {currentPage >= 2 && (
         <li
-          className="p-2 px-4 rounded-md text-white bg-red-500 hover:bg-option"
+          className="p-4 px-5 rounded-md text-white bg-red-500 hover:bg-option aspect-square"
           onClick={handlerPreviousPage}
         >
           {"<"}
@@ -49,8 +49,10 @@ const Pagination = ({
       )}
       {pagesInCurrentBlock.map((page) => (
         <li
-          className={`p-2 px-4 rounded-md ${
-            currentPage === page ? "text-white bg-red-500 hover:bg-option" : ""
+          className={`p-4 rounded-md ${
+            currentPage === page
+              ? "text-white bg-red-500 hover:bg-option px-5 aspect-square "
+              : ""
           }`}
           key={page}
           onClick={() => setCurrentPage(page)}
@@ -61,7 +63,7 @@ const Pagination = ({
       {/* aqui se le pueden agregar iconos */}
       {/* siguiente pagina */}
       <li
-        className="p-2 px-4 rounded-md text-white bg-red-500 hover:bg-option"
+        className="p-4 px-5 rounded-md text-white bg-red-500 hover:bg-option aspect-square"
         onClick={handlerNextPage}
       >
         {">"}
@@ -69,7 +71,7 @@ const Pagination = ({
       {/* ultima pagina */}
       {currentPage >= 2 && (
         <li
-          className="p-2 px-4 rounded-md text-white bg-red-500 hover:bg-option"
+          className="p-4 rounded-md text-white bg-red-500 hover:bg-option aspect-square"
           onClick={handlerLastPage}
         >
           {">>"}
