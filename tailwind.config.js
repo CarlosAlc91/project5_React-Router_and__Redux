@@ -9,11 +9,13 @@ export default {
       colors: {
         'trainer': '#FE1936',
         'black-home': '#302F2F',
-        'btn-red': '#D93F3F'
+        'btn-red': '#D93F3F',
+        'option': '#ED8F8F'
       }
     },
     fontFamily: {
-      'inter': ['Inter', 'sans-serif']
+      'inter': ['Inter', 'sans-serif'],
+      'roboto': ['Roboto', 'sans-serif']
     }
   },
   plugins: [],

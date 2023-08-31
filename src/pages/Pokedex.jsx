@@ -27,28 +27,45 @@ const Pokedex = () => {
 
   return (
     <main>
-      <section>
-        <p>
-          <span>Welcome {name}</span>
+      <section className="px-5">
+        <p className="flex justify-between">
+          <span className="text-trainer font-inter font-bold">
+            Welcome {name},{" "}
+            <p className="text-black font-normal">
+              here you'll find your favorite pokemon
+            </p>
+          </span>
         </p>
         <form>
-          <div>
-            <input
-              value={pokemonName}
-              onChange={handlerChange(setPokemonName)}
-              placeholder="Search pokemon..."
-              type="text"
-            />
-          </div>
+          <section className="flex justify-between py-6 mx-auto">
+            <div className="border py-2 w-80 shadow-lg">
+              <input
+                className="outline-none pl-2"
+                value={pokemonName}
+                onChange={handlerChange(setPokemonName)}
+                placeholder="Search pokemon..."
+                type="text"
+              />
+            </div>
 
-          <select value={pokemonType} onChange={handlerChange(setPokemonType)}>
-            <option value="">All pokemons</option>
-            {types.map((type) => (
-              <option key={type.name} value={type.name} className="capitalize">
-                {type.name}
-              </option>
-            ))}
-          </select>
+            <select
+              className="w-80 font-roboto font-light text-sm border shadow-lg outline-none pl-2"
+              value={pokemonType}
+              onChange={handlerChange(setPokemonType)}
+            >
+              <option value="">All pokemons</option>
+              {types.map((type) => (
+                  <option
+                    key={type.name}
+                    value={type.name}
+                    className="capitalize"
+                  >
+                    {type.name}
+                  </option>
+                
+              ))}
+            </select>
+          </section>
         </form>
       </section>
 
