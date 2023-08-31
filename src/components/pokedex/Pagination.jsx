@@ -30,13 +30,27 @@ const Pagination = ({
   const handlerFirstPage = () => setCurrentPage(FIRST_PAGE);
 
   return (
-    <ul className="flex justify-center gap-4 p-4 items-center">
-      {currentPage >= 2 && <li onClick={handlerFirstPage}>{"<<"}</li>}
-      {currentPage >= 2 && <li onClick={handlerPreviousPage}>{"<"}</li>}
+    <ul className="flex justify-center gap-4 p-4 items-center font-semibold cursor-pointer">
+      {currentPage >= 2 && (
+        <li
+          className="p-2 px-4 rounded-md text-white bg-red-500 hover:bg-option"
+          onClick={handlerFirstPage}
+        >
+          {"<<"}
+        </li>
+      )}
+      {currentPage >= 2 && (
+        <li
+          className="p-2 px-4 rounded-md text-white bg-red-500 hover:bg-option"
+          onClick={handlerPreviousPage}
+        >
+          {"<"}
+        </li>
+      )}
       {pagesInCurrentBlock.map((page) => (
         <li
-          className={`p-2 ${
-            currentPage === page ? "text-white bg-red-500" : ""
+          className={`p-2 px-4 rounded-md ${
+            currentPage === page ? "text-white bg-red-500 hover:bg-option" : ""
           }`}
           key={page}
           onClick={() => setCurrentPage(page)}
@@ -46,9 +60,21 @@ const Pagination = ({
       ))}
       {/* aqui se le pueden agregar iconos */}
       {/* siguiente pagina */}
-      <li onClick={handlerNextPage}>{">"}</li>
+      <li
+        className="p-2 px-4 rounded-md text-white bg-red-500 hover:bg-option"
+        onClick={handlerNextPage}
+      >
+        {">"}
+      </li>
       {/* ultima pagina */}
-      {currentPage >= 2 && <li onClick={handlerLastPage}>{">>"}</li>}
+      {currentPage >= 2 && (
+        <li
+          className="p-2 px-4 rounded-md text-white bg-red-500 hover:bg-option"
+          onClick={handlerLastPage}
+        >
+          {">>"}
+        </li>
+      )}
     </ul>
   );
 };
