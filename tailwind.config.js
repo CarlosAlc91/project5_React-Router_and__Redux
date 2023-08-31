@@ -5,7 +5,16 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'trainer': '#FE1936',
+        'black-home': '#302F2F',
+        'btn-red': '#D93F3F'
+      }
+    },
+    fontFamily: {
+      'inter': ['Inter', 'sans-serif']
+    }
   },
   plugins: [],
 }

@@ -17,22 +17,30 @@ const Home = () => {
   };
   return (
     <main className=" grid min-h-screen grid-rows-[1fr_auto]">
-      <section>
+      <section className="flex justify-center items-center text-center font-inter">
         <article>
           <div>
             <img src="/images/banner.png" alt="" />
           </div>
-          <h2>Hi, trainer</h2>
-          <p>Provide your name to start</p>
-          <form onSubmit={handleSubmit}>
+          <h2 className="pt-16 text-trainer  font-bold text-5xl">
+            ¡Hi, trainer!
+          </h2>
+          <p className="text-black-home text-2xl font-medium pb-10">
+            Provide your name to start.
+          </p>
+          <form
+            className="shadow-lg w-[430px] max-w-max mx-auto border"
+            onSubmit={handleSubmit}
+          >
             <input
+              className="outline-none px-10"
               autoComplete="off"
-              placeholder="your name..."
+              placeholder="Your name..."
               id="nameTrainer"
               type="text"
               required
             />
-            <button>Start!</button>
+            <button className="bg-btn-red py-2 text-white px-10 ">Start</button>
           </form>
         </article>
       </section>
