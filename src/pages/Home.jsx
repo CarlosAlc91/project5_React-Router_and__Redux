@@ -25,7 +25,7 @@ const Home = () => {
           <h2 className="pt-16 text-trainer  font-bold text-5xl">
             ¡Hi, trainer!
           </h2>
-          <p className="text-black-home text-2xl font-medium pb-10">
+          <p className="text-black-home text-2xl py-3 font-medium pb-10">
             Provide your name to start.
           </p>
           <form
