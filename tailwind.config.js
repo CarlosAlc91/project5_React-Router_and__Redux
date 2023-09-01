@@ -11,7 +11,8 @@ export default {
         'black-home': '#302F2F',
         'btn-red': '#D93F3F',
         'option': '#ED8F8F',
-        'h-line': '#D3D3D3'
+        'h-line': '#D3D3D3',
+        'b-line': '#416460'
       }
     },
     fontFamily: {

@@ -15,7 +15,7 @@ const ProgressBarStat = ({ stat }) => {
         {/* progress, h-full el alto del papá*/}
         <div
           style={{ width: getPercentageProgressBar(stat.value) }}
-          className="h-full bg-gradient-to-r from-yellow-500 to-orange-500"
+          className="h-full bg-gradient-to-r from-yellow-500 to-orange-500 rounded-md"
         ></div>
       </div>
     </article>

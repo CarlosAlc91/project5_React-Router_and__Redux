@@ -23,7 +23,6 @@ const HeaderPokeball = ({ children }) => {
             logout
           </button>
         </div>
-        I MUST BE THE BEST
       </header>
       {children}
     </section>
