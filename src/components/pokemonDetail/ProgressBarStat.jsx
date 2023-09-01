@@ -7,7 +7,7 @@ const ProgressBarStat = ({ stat }) => {
   return (
     <article>
       {/* it separetes name and value */}
-      <section className="flex justify-between px-1">
+      <section className="flex justify-between px-1 font-roboto font-semibold capitalize pt-6">
         <h5>{stat.name}</h5>
         <span>{stat.value}/255</span>
       </section>

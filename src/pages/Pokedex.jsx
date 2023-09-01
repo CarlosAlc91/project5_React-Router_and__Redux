@@ -31,9 +31,9 @@ const Pokedex = () => {
         <p className="flex justify-between">
           <span className="text-trainer font-inter font-bold">
             Welcome {name},{" "}
-            <p className="text-black font-normal">
+            <b className="text-black font-medium">
               here you'll find your favorite pokemon
-            </p>
+            </b>
           </span>
         </p>
         <form>
@@ -55,14 +55,13 @@ const Pokedex = () => {
             >
               <option value="">All pokemons</option>
               {types.map((type) => (
-                  <option
-                    key={type.name}
-                    value={type.name}
-                    className="capitalize"
-                  >
-                    {type.name}
-                  </option>
-                
+                <option
+                  key={type.name}
+                  value={type.name}
+                  className="capitalize"
+                >
+                  {type.name}
+                </option>
               ))}
             </select>
           </section>
