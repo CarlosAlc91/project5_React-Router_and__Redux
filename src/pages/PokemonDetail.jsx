@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ProgressBarStatsList from "../components/pokemonDetail/ProgressBarStatsList";
-import { getPokemonById } from "../services/pokemons";
+import { getPokemonById, joinPokemonTypes } from "../services/pokemons";
 import { bgStylePokemonType } from "../shared/pokemon";
 
 /* Pokemon's detailed information */
@@ -49,27 +49,46 @@ const PokemonDetail = () => {
           </section>
           <section className="flex justify-center gap-8 font-medium">
             <div>
-              <p className="text-sm font-normal">weight</p>
+              <p className="text-xs font-normal">weight</p>
               {pokemonData?.weight}
             </div>
             <div>
-              <p className="text-sm font-normal">height</p>
+              <p className="text-xs font-normal">height</p>
               {pokemonData?.height}
             </div>
           </section>
         </section>
 
-        <article className="flex justify-evenly gap-8">
-          <section>
+        <article className="font-roboto py-4">
+          <section className="flex  justify-evenly gap-10 text-black">
             <p>Type</p>
-            <span className={`px-6 ${bgStylePokemonType[pokemonData?.types[0]]}`}>
-              {pokemonData?.types[0]}
-            </span>
+            <p>Abilities</p>
           </section>
-          <p>abilities</p>
-          <section className="flex">
-            <div>{pokemonData?.abilities[0].ability.name}</div>
-            <div>{pokemonData?.abilities[1].ability.name}</div>
+          <section className="flex justify-evenly py-5">
+            <div className="flex gap-4 items-center text-white capitalize">
+              <span
+                className={`${
+                  bgStylePokemonType[pokemonData?.types[0]]
+                } border-[1px] bg-[#85C9C5] px-8 py-[2px]`}
+              >
+                {pokemonData?.types[0]}
+              </span>
+              <span
+                className={`${
+                  bgStylePokemonType[pokemonData?.types[1]]
+                } border-[1px] bg-[#85C9C5] px-8 py-[2px]`}
+              >
+                {pokemonData?.types[1]}
+              </span>
+            </div>
+            <div className="flex justify-center items-center gap-5 capitalize">
+              <span className="border-[1px] border-h-line px-6 py-[2px]">
+                {pokemonData?.abilities[0].ability.name}{" "}
+              </span>
+              <span className="border-[1px] border-h-line px-6 py-[2px]">
+                {pokemonData?.abilities[1].ability.name}
+              </span>
+            </div>
           </section>
         </article>
 
